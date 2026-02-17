@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://kdxk1xouolgu"]
+
+[ext_resource type="Script" uid="uid://cbq5xvayq37v3" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="PackedScene" uid="uid://l4fulpkysuj5" path="res://entities/player/player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://gm1jstt5o6oh" path="res://entities/player/player.gd" id="2_0xm2m"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0xm2m"]
+size = Vector2(18, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_h2yge"]
+
+[node name="Main" type="Node" unique_id=619108198]
+script = ExtResource("1_h2yge")
+
+[node name="Player" parent="." unique_id=950002256 instance=ExtResource("1_ig7tw")]
+script = ExtResource("2_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1050128128]
+position = Vector2(0, -16)
+texture = SubResource("PlaceholderTexture2D_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1284750837]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_h2yge")
