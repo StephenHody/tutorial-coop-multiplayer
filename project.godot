@@ -15,6 +15,10 @@ run/main_scene="uid://bvhto4inpn3ew"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameEvents="*uid://drjrv060biv7w"
+
 [display]
 
 window/size/viewport_width=640
@@ -56,6 +60,7 @@ attack={
 [layer_names]
 
 2d_physics/layer_1="Terrain"
+2d_physics/layer_3="Enemy"
 2d_physics/layer_9="Bullet"
 
 [physics]

@@ -5,5 +5,8 @@
 [node name="EnemyManager" type="Node" unique_id=170138419]
 script = ExtResource("1_26fr1")
 
+[node name="RoundTimer" type="Timer" parent="." unique_id=1256841186]
+one_shot = true
+
 [node name="SpawnIntervalTimer" type="Timer" parent="." unique_id=2136934456]
-autostart = true
+one_shot = true

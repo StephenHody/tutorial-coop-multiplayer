@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://i24eoqyb5vt7" path="res://entities/bullet/bullet.gd" id="1_2kyv7"]
 [ext_resource type="Texture2D" uid="uid://bp748rkajdebu" path="res://entities/bullet/bullet_assets/bullet.png" id="2_5h0jh"]
+[ext_resource type="PackedScene" uid="uid://c3k7t5t6t8712" path="res://component/hitbox_component.tscn" id="2_25cl0"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_2kyv7"]
 properties/0/path = NodePath(".:global_position")
@@ -14,7 +15,7 @@ properties/2/path = NodePath(".:direction")
 properties/2/spawn = true
 properties/2/replication_mode = 0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2kyv7"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b4ffb"]
 radius = 5.0
 height = 15.0
 
@@ -29,13 +30,11 @@ wait_time = 2.0
 one_shot = true
 autostart = true
 
-[node name="Area2D" type="Area2D" parent="." unique_id=285988228]
-collision_layer = 256
-collision_mask = 0
+[node name="HitboxComponent" parent="." unique_id=100072622 instance=ExtResource("2_25cl0")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1066669582]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent" unique_id=1745533430]
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_2kyv7")
+shape = SubResource("CapsuleShape2D_b4ffb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1232128463]
 texture = ExtResource("2_5h0jh")
