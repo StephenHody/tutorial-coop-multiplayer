@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dm48wth8ku7rg"]
+
+[ext_resource type="Script" uid="uid://i24eoqyb5vt7" path="res://entities/bullet/bullet.gd" id="1_2kyv7"]
+[ext_resource type="Texture2D" uid="uid://bp748rkajdebu" path="res://entities/bullet/bullet_assets/bullet.png" id="2_5h0jh"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_2kyv7"]
+properties/0/path = NodePath(".:global_position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 0
+properties/2/path = NodePath(".:direction")
+properties/2/spawn = true
+properties/2/replication_mode = 0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2kyv7"]
+radius = 5.0
+height = 15.0
+
+[node name="Bullet" type="Node2D" unique_id=547133179]
+script = ExtResource("1_2kyv7")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=725396869]
+replication_config = SubResource("SceneReplicationConfig_2kyv7")
+
+[node name="LifeTimer" type="Timer" parent="." unique_id=1040897440]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=285988228]
+collision_layer = 256
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1066669582]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_2kyv7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1232128463]
+texture = ExtResource("2_5h0jh")
