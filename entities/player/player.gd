@@ -14,6 +14,7 @@ signal died
 var bullet_scene: PackedScene = preload("uid://dm48wth8ku7rg")
 var muzzle_flash_scene: PackedScene = preload("uid://76c6ujriapy0")
 var input_multiplayer_authority: int
+var is_dying: bool
 
 
 func _ready():
@@ -26,6 +27,10 @@ func _ready():
 func _process(_delta: float) -> void:
 	update_aim_position()
 	if is_multiplayer_authority():
+		if is_dying:
+			global_position = Vector2.RIGHT * 1000
+			return
+
 		velocity = player_input_synchronizer_component.movement_vector * 100
 		move_and_slide()
 		if player_input_synchronizer_component.is_attack_pressed:
@@ -66,6 +71,22 @@ func play_fire_effects():
 	get_parent().add_child(muzzle_flash)
 
 
-func _on_died():
+func kill():
+	if !is_multiplayer_authority():
+		push_error("Cannot call kill on non-server client")
+		return
+		
+	_kill.rpc()
+	await get_tree().create_timer(0.5).timeout
+	
 	died.emit()
 	queue_free()
+
+@rpc("authority", "call_local", "reliable")
+func _kill():
+	is_dying = true
+	player_input_synchronizer_component.public_visibility = false
+
+
+func _on_died():
+	kill()
