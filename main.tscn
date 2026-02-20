@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cmfjqwd7rn32h" path="res://manager/EnemyManager.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://crdd47twuo4cu" path="res://assets/environment/arena.png" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://hf34ayfqx3j0" path="res://ui/game_ui/game_ui.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://j85khqgxskmh" path="res://game_camera.tscn" id="5_272bh"]
+[ext_resource type="Texture2D" uid="uid://j1b5hdw78xf8" path="res://assets/effect/clip_mask.png" id="6_7mycd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(32, 300)
@@ -26,6 +28,9 @@ spawn_path = NodePath("../YSortRoot")
 
 [node name="GameUI" parent="." unique_id=644192710 node_paths=PackedStringArray("enemy_manager") instance=ExtResource("4_lquwl")]
 enemy_manager = NodePath("../EnemyManager")
+
+[node name="GameCamera" parent="." unique_id=967697372 instance=ExtResource("5_272bh")]
+position = Vector2(320, 180)
 
 [node name="PlayerSpawnPosition" type="Marker2D" parent="." unique_id=1116440101]
 position = Vector2(320, 185)
@@ -79,6 +84,14 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodies/StaticBody2D4" unique_id=1340236737]
 shape = SubResource("RectangleShape2D_1bvp3")
 metadata/_edit_lock_ = true
+
+[node name="BackgroundEffects" type="Node2D" parent="." unique_id=280318299]
+
+[node name="BackgroundMask" type="Sprite2D" parent="BackgroundEffects" unique_id=1645572493]
+unique_name_in_owner = true
+clip_children = 1
+position = Vector2(320, 180)
+texture = ExtResource("6_7mycd")
 
 [node name="YSortRoot" type="Node2D" parent="." unique_id=1848361215]
 y_sort_enabled = true
