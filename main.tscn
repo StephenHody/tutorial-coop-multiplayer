@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://ce4s8atnylykf" path="res://entities/enemy/enemy.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cmfjqwd7rn32h" path="res://manager/EnemyManager.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://crdd47twuo4cu" path="res://assets/environment/arena.png" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://hf34ayfqx3j0" path="res://ui/game_ui/game_ui.tscn" id="4_lquwl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
 size = Vector2(32, 300)
@@ -16,12 +17,15 @@ script = ExtResource("1_h2yge")
 
 [node name="EnemyManager" parent="." unique_id=170138419 node_paths=PackedStringArray("enemy_spawn_root", "spawn_rect") instance=ExtResource("2_h2yge")]
 enemy_scene = ExtResource("2_0xm2m")
-enemy_spawn_root = NodePath("..")
+enemy_spawn_root = NodePath("../YSortRoot")
 spawn_rect = NodePath("../SpawnRect")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1390726177]
 _spawnable_scenes = PackedStringArray("uid://dm48wth8ku7rg", "uid://ce4s8atnylykf")
-spawn_path = NodePath("..")
+spawn_path = NodePath("../YSortRoot")
+
+[node name="GameUI" parent="." unique_id=644192710 node_paths=PackedStringArray("enemy_manager") instance=ExtResource("4_lquwl")]
+enemy_manager = NodePath("../EnemyManager")
 
 [node name="PlayerSpawnPosition" type="Marker2D" parent="." unique_id=1116440101]
 position = Vector2(320, 185)
@@ -74,4 +78,8 @@ collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBodies/StaticBody2D4" unique_id=1340236737]
 shape = SubResource("RectangleShape2D_1bvp3")
+metadata/_edit_lock_ = true
+
+[node name="YSortRoot" type="Node2D" parent="." unique_id=1848361215]
+y_sort_enabled = true
 metadata/_edit_lock_ = true
