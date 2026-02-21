@@ -80,3 +80,50 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "Back"
+
+[node name="ErrorContainer" type="MarginContainer" parent="." unique_id=1192188945]
+layout_mode = 2
+mouse_filter = 0
+
+[node name="PanelContainer" type="PanelContainer" parent="ErrorContainer" unique_id=1116176160]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="ErrorContainer/PanelContainer" unique_id=277053303]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ErrorContainer/PanelContainer/MarginContainer" unique_id=1527615749]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="ErrorContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=79073632]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.12941177, 0.5921569, 0.9411765, 1)
+text = "Error!"
+
+[node name="ClientErrorLabel" type="Label" parent="ErrorContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1508826909]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.12941177, 0.5921569, 0.9411765, 1)
+text = "An error occurred when connecting to the server."
+
+[node name="ServerErrorLabel" type="Label" parent="ErrorContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1128900749]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.12941177, 0.5921569, 0.9411765, 1)
+text = "An error occurred when creating the server."
+
+[node name="ErrorConfirmButton" type="Button" parent="ErrorContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1028457182]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "OK"

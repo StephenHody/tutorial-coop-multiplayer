@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c3ot4h1yntloo"]
+
+[ext_resource type="PackedScene" uid="uid://dv27hi6sramcp" path="res://autoload/background.tscn" id="1_mnjdh"]
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=1545707489]
+
+[node name="Background" parent="." unique_id=2000394241 instance=ExtResource("1_mnjdh")]
+position = Vector2(257, 181)
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=112962527]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=943649501]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1837771640]
+layout_mode = 2
+text = "PAUSED"
+horizontal_alignment = 1
+
+[node name="ResumeButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1286076413]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=915877312]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit to Menu"
