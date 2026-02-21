@@ -4,7 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://ce4s8atnylykf" path="res://entities/enemy/enemy.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://cmfjqwd7rn32h" path="res://manager/EnemyManager.tscn" id="2_h2yge"]
 [ext_resource type="Texture2D" uid="uid://crdd47twuo4cu" path="res://assets/environment/arena.png" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://clf5gkk81ug1r" path="res://manager/lobby_manager.tscn" id="4_kek77"]
 [ext_resource type="PackedScene" uid="uid://hf34ayfqx3j0" path="res://ui/game_ui/game_ui.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c3ot4h1yntloo" path="res://ui/pause_menu/pause_menu.tscn" id="5_5vw27"]
 [ext_resource type="PackedScene" uid="uid://j85khqgxskmh" path="res://game_camera.tscn" id="5_272bh"]
 [ext_resource type="Texture2D" uid="uid://j1b5hdw78xf8" path="res://assets/effect/clip_mask.png" id="6_7mycd"]
 
@@ -22,12 +24,18 @@ enemy_scene = ExtResource("2_0xm2m")
 enemy_spawn_root = NodePath("../YSortRoot")
 spawn_rect = NodePath("../SpawnRect")
 
+[node name="LobbyManager" parent="." unique_id=361945457 instance=ExtResource("4_kek77")]
+
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1390726177]
 _spawnable_scenes = PackedStringArray("uid://dm48wth8ku7rg", "uid://ce4s8atnylykf")
 spawn_path = NodePath("../YSortRoot")
 
-[node name="GameUI" parent="." unique_id=644192710 node_paths=PackedStringArray("enemy_manager") instance=ExtResource("4_lquwl")]
+[node name="GameUI" parent="." unique_id=644192710 node_paths=PackedStringArray("enemy_manager", "lobby_manager") instance=ExtResource("4_lquwl")]
 enemy_manager = NodePath("../EnemyManager")
+lobby_manager = NodePath("../LobbyManager")
+
+[node name="PauseMenu" parent="." unique_id=1545707489 instance=ExtResource("5_5vw27")]
+visible = false
 
 [node name="GameCamera" parent="." unique_id=967697372 instance=ExtResource("5_272bh")]
 position = Vector2(320, 180)

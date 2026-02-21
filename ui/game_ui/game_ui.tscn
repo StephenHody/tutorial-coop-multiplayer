@@ -20,25 +20,64 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 48
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1572146694]
+[node name="ReadyUpContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1291853519]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="ReadyLabel" type="Label" parent="MarginContainer/ReadyUpContainer" unique_id=403754342]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.09019608, 0.7294118, 0.48235294, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "READY"
+horizontal_alignment = 1
+
+[node name="NotReadyLabel" type="Label" parent="MarginContainer/ReadyUpContainer" unique_id=1798068403]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 4
+text = "PRESS R TO READY UP"
+horizontal_alignment = 1
+
+[node name="ReadyCountLabel" type="Label" parent="MarginContainer/ReadyUpContainer" unique_id=260397835]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+text = "1/4 READY"
+horizontal_alignment = 1
+
+[node name="RoundInfoContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1572146694]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="RoundLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=315031688]
+[node name="RoundLabel" type="Label" parent="MarginContainer/RoundInfoContainer" unique_id=315031688]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 text = "Round 1"
 
-[node name="TimerLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=970505514]
+[node name="TimerLabel" type="Label" parent="MarginContainer/RoundInfoContainer" unique_id=970505514]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
 text = "30"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=571572996]

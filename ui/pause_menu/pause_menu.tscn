@@ -1,8 +1,11 @@
 [gd_scene format=3 uid="uid://c3ot4h1yntloo"]
 
+[ext_resource type="Script" uid="uid://nhc50pp5nfr8" path="res://ui/pause_menu/pause_menu.gd" id="1_jbgdu"]
 [ext_resource type="PackedScene" uid="uid://dv27hi6sramcp" path="res://autoload/background.tscn" id="1_mnjdh"]
 
 [node name="PauseMenu" type="CanvasLayer" unique_id=1545707489]
+process_mode = 3
+script = ExtResource("1_jbgdu")
 
 [node name="Background" parent="." unique_id=2000394241 instance=ExtResource("1_mnjdh")]
 position = Vector2(257, 181)
