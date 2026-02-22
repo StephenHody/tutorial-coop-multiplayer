@@ -8,9 +8,13 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
-config/name="Tutorial-Coop Multiplayer"
+config/name="GnomeArena"
 run/main_scene="uid://bvhto4inpn3ew"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
