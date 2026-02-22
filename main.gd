@@ -87,16 +87,14 @@ func end_game():
 
 
 func check_game_over():
-	var is_game_over := true
+	var alive_count := 0
 	
 	for peer_id in get_all_peers():
 		if !dead_peers.has(peer_id):
-			is_game_over = false
-			break
+			alive_count += 1
 	
-	if is_game_over:
+	if alive_count <= 1:
 		end_game()
-		pass
 
 
 func get_all_peers() -> PackedInt32Array:

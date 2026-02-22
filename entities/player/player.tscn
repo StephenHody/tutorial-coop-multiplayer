@@ -132,7 +132,7 @@ shape = SubResource("CircleShape2D_symyc")
 
 [node name="HurtboxComponent" parent="." unique_id=1924923940 node_paths=PackedStringArray("health_component") instance=ExtResource("6_qiwj3")]
 visible = false
-collision_mask = 4
+collision_mask = 260
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent" unique_id=354032630]
